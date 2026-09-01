@@ -1,8 +1,11 @@
+import { AiOutlineScissor } from "react-icons/ai";
+
 export default function Navbar() {
   return (
     <>
       <header>
         <div className=" flex mt-5 ml-5">
+          <AiOutlineScissor />
           <h1>Barbearia Locals</h1>
         </div>
 
