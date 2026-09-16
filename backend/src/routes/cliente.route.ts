@@ -20,6 +20,23 @@ cliente_router.get("/", async (request: Request, response: Response) => {
     })
 })
 
+
+cliente_router.get("/:id", async (request: Request<{ id: string }>, response: Response) => {
+    try {
+        const { id } = request.params
+        const res = await
+            clienteService.getById(id)
+
+        return response.json(res)
+    } catch (error) {
+        console.error(error);
+    }
+
+    return response.status(500).json({
+        erro: "Erro Interno"
+    })
+})
+
 cliente_router.post("/", async (request: Request<{}, {}, CriarCliente>, response: Response) => {
     try {
         const dados = request.body
